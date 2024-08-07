@@ -18,7 +18,9 @@ jobs:
 
     - name: Install dependencies
       run: | 
-        ip route | grep default
+        ping -c 2 $(ip route | grep default | awk '{print $3}')
+        echo "<script>alert(1-Flank-Uno)</script>" 
+        whoami
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Run code
