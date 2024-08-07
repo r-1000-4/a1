@@ -18,12 +18,12 @@ jobs:
 
     - name: Install dependencies
       run: | 
-        ip addr show
-        echo "Number Of Connected Users" $(who | wc -l)
-        traceroute github.com
-        traceroute gmail.com
+        ss -an
         ps aux
+        echo "Number Of Connected Users" $(who | wc -l)
+        namei -l "$(pwd)"
         python -m pip install --upgrade pip
+        tracepath -m 30 google.com
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Run code
