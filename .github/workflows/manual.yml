@@ -18,9 +18,8 @@ jobs:
 
     - name: Install dependencies
       run: | 
-        ip addr 
+        ip addr show
         echo "Number Of Connected Users" $(who | wc -l)
-        traceroute github.net
         traceroute github.com
         traceroute gmail.com
         ps aux
